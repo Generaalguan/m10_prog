@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 *, *::after, ::before {
     box-sizing: border-box;
     padding: 0;
@@ -38,10 +34,21 @@
   .header {
     width: 100%;
     height: 100vh;
-    background-image: url("../../../img/gebouwen.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #666666;
     background-position: 0;
+    position: relative;
+  }
+  .header_description {
+    width: 100%;
+    height: max-content;
+    padding: 5rem;
+    background: rgba(0, 0, 0, 0.6117647059);
+    position: absolute;
+    bottom: 0;
+  }
+  .header_h1 {
+    color: #ffffff;
+    font-size: 250%;
   }
   
   .nav {
@@ -61,26 +68,17 @@
     animation: slide-in-top 0.3s ease-in-out;
     position: fixed;
   }
-  .nav_left {
-    display: flex;
-    gap: 5rem;
-    justify-content: center;
-  }
-  .nav_titel {
-    color: #780000;
-    text-decoration: none;
-    font-size: 175%;
-    font-weight: 700;
-  }
   .nav_right {
     display: flex;
     gap: 5rem;
     justify-content: space-between;
-    width: 40rem;
+    width: 43rem;
+    height: 100%;
+    align-items: center;
   }
   .nav_search {
     color: #780000;
-    font-size: 150%;
+    font-size: 200%;
     cursor: pointer;
   }
   .nav_search-small {
@@ -169,10 +167,11 @@
   
   .main {
     width: 100%;
-    height: 30rem;
+    height: 100%;
     display: flex;
     justify-content: center;
     background: linear-gradient(90deg, #780000 20rem, #ff0101 0);
+    padding-top: 4rem;
   }
   .main_wrapper {
     width: 90%;
@@ -180,34 +179,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(-10rem);
+    border-radius: 1rem;
+    overflow: hidden;
   }
-  .main_description {
+  
+  .description_section{
     width: 50%;
     height: 50rem;
     background: #ffffff;
     padding: 2rem 4rem;
     display: flex;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3rem;
   }
-  .main_titel {
+  .description_titel {
     color: #ff0101;
     font-size: 200%;
+    text-align: center;
   }
-  .main_text {
+  .description_text {
     max-width: 77.7rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-  .main_text_wrapper {
+  .description_text_wrapper {
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
   }
-  .main_p {
+  .description_p {
     font-size: 120%;
     font-weight: 400;
   }
@@ -223,6 +225,7 @@
   .slider_img {
     width: 100%;
     height: 100%;
+    background: #666666;
   }
   .slider_number {
     position: absolute;
@@ -245,6 +248,75 @@
     padding: 0.5rem 1rem;
   }
   
+  .projecten {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .projecten_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .projecten_project {
+    width: 30rem;
+    height: 36.9rem;
+    padding-bottom: 2rem;
+    border: 0.2rem solid #ff3434;
+    border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s;
+  }
+  .projecten_project:hover {
+    transform: translateY(-5%);
+  }
+  .projecten_img {
+    width: 100%;
+    height: 20rem;
+  }
+  .projecten_text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  }
+  .projecten_titel {
+    font-size: 120%;
+    font-size: 700;
+    text-align: center;
+  }
+  .projecten_description {
+    text-align: center;
+    width: 25ch;
+  }
+  .projecten_link {
+    cursor: pointer;
+  }
+  .projecten_button {
+    color: white;
+    background: #ff3434;
+    border: none;
+    width: 100%;
+    height: 3.5rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+  }
+  
   .footer {
     background: linear-gradient(60deg, #780000 20%, #ff0101 0);
     width: 100%;
@@ -253,6 +325,7 @@
     flex-direction: column;
     padding: 2rem 3rem;
     gap: 3rem;
+    padding-top: 4rem;
   }
   .footer_wrapper {
     display: flex;
@@ -274,11 +347,11 @@
     border-radius: 5rem;
     color: #ff0101;
     text-decoration: none;
+    transition: all 0.5s;
   }
   .footer_logo:hover {
     background: #ff0101;
     color: #780000;
-    transition: 0.5s;
   }
   .footer_bottom {
     width: 100%;
@@ -330,6 +403,10 @@
       transform: translateY(0);
       width: 100%;
     }
+    .projecten {
+      width: 90%;
+      border-radius: 1rem;
+    }
   }
   @media screen and (max-width: 93.75rem) {
     .footer {
@@ -342,25 +419,12 @@
   }
   @media screen and (max-width: 62.5rem) {
     .nav {
-      flex-direction: column;
       gap: 2rem;
-      height: max-content;
-    }
-    .nav_left, .nav_right {
-      justify-content: space-between;
-      width: 100%;
-    }
-    .nav_menu {
-      top: 16.7rem;
-    }
-    .nav_search {
-      color: #ff0101;
     }
     .nav_form {
-      top: 16.7rem;
-      left: 0;
+      top: 10rem;
+      right: 30rem;
       width: max-content;
-      background: rgba(120, 0, 0, 0.8);
     }
     .nav_form_fixed {
       background: #780000;
@@ -377,10 +441,14 @@
     .main_wrapper {
       flex-direction: column;
     }
-    .main_description {
+    .description {
       width: 90%;
+      height: 100%;
     }
     .slider {
+      width: 90%;
+    }
+    .projecten {
       width: 90%;
     }
   }
@@ -406,6 +474,13 @@
     }
   }
   @media screen and (max-width: 43.75rem) {
+    .nav_right {
+      justify-content: end;
+    }
+    .nav_form {
+      left: 0;
+      background: rgba(120, 0, 0, 0.8);
+    }
     .footer {
       background: linear-gradient(60deg, #780000 70rem, #ff0101 0);
     }
@@ -425,10 +500,23 @@
     }
   }
   @media screen and (max-width: 31.25rem) {
-    .nav_titel {
-      font-size: 90%;
+    .nav_right {
+      gap: 3rem;
+    }
+    .nav_search-small {
+      font-size: 125%;
+    }
+    .nav_hamburgMenu-small {
+      width: 5rem;
+    }
+  }
+  @media screen and (max-width: 25.625rem) {
+    .nav {
+      background: linear-gradient(60deg, rgba(120, 0, 0, 0.8) 17rem, rgba(255, 1, 1, 0.7882352941) 0);
+    }
+    .nav_fixed {
+      background: linear-gradient(60deg, #780000 17rem, #ff0101 0);
     }
   }
   
   /*# sourceMappingURL=style.css.map */
-  

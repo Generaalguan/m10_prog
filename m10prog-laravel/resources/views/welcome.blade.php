@@ -25,8 +25,7 @@
   <header class="header">
     <nav class="nav" id="navbar">
 
-      <div class="nav_left">
-        <a href="https://www.amsterdam.nl/pmb/" class="logo_link">
+        <a href="{{route('bmv')}}" class="logo_link">
           <div class="logo">
             <img class="logo_img" src="img/logo.webp" alt="Logo van Gemeente Amsterdam">
             <div class="logo_wrapper">
@@ -36,9 +35,6 @@
 
           </div>
         </a>
-
-        <a href="index.html" class="nav_titel">ProjectmanagementBureau</a>
-      </div>
 
       <div class="nav_right" id="nav_right">
         <!--search-->
@@ -54,22 +50,21 @@
         <img @click="togglemenu" class="nav_hamburgMenu" src="img/Hamburg menu.webp" alt="Hamburger menu">
         <div v-show="menu" class="nav_menu" id="menu">
           <ul class="nav_list">
+            <!--BMV-->
             <li>
-              <a class="nav_listTitel" href="https://www.amsterdam.nl/pmb/expertise/bmv/">BMV</a>
+              <a class="nav_listTitel" href="{{route('bmv')}}">BMV</a>
             </li>
             <li>
               <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/organisatie/">Organisatie</a>
             </li>
             <li>
-              <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/projecten/">Projecten</a>
+              <a class="nav_listItem" href="{{route('opdrachten')}}">Projecten</a>
             </li>
             <li>
               <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/werken/">Werken bij</a>
             </li>
-            <li>
-              <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/contact/">contact</a>
-            </li>
             <hr>
+            <!--PMB-->
             <li>
               <a class="nav_listTitel" href="https://www.amsterdam.nl/pmb/">PMB</a>
             </li>
@@ -86,6 +81,9 @@
             <li>
               <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/publicaties/">Publicaties</a>
             </li>
+            <li>
+              <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/contact/">contact</a>
+            </li>
           </ul>
         </div>
         <!--menuSmall-->
@@ -94,23 +92,26 @@
       </div>
 
     </nav>
+
+    <div class="header_description">
+      <h1 class="header_h1">Bouwmanagement en Maatschappelijk Vastgoed</h1>
+    </div>
   </header>
 
   <main class="main">
 
     <div class="main_wrapper">
 
-      <section class="main_description">
+      <section class="description description_section">
 
-        <h1 class="main_titel">Bouwmanagement en Maatschappelijk Vastgoed</h1>
+        <h1 class="description_titel">Bijdragen aan een toekomstbestendige stad</h1>
 
-        <article class="main_text">
-          <h2 class="main_header">Bijdragen aan een toekomstbestendige stad</h2>
-          <h4 class="main_header-small">Een sociaal-duurzaam Amsterdam</h4>
-          <div class="main_text_wrapper">
-            <p class="main_p">Voor veel mensen is en blijft Amsterdam een zeer aantrekkelijke plek om te wonen en dus
+        <article class="description_text">
+          <h2 class="description_header">Een sociaal-duurzaam Amsterdam</h2>
+          <div class="description_text_wrapper">
+            <p class="description_p">Voor veel mensen is en blijft Amsterdam een zeer aantrekkelijke plek om te wonen en dus
               blijven we bouwen aan de groei van de stad.</p>
-            <p class="main_p">Maar Amsterdam bestaat natuurlijk uit méér dan alleen woningen. Daarom bouwen we aan een
+            <p class="description_p">Maar Amsterdam bestaat natuurlijk uit méér dan alleen woningen. Daarom bouwen we aan een
               sociaal-duurzaam Amsterdam: een stad die het welzijn van haar bewoners belangrijk vindt en verbetert, door
               niet alleen woningen te bouwen maar ook te zorgen voor maatschappelijke voorzieningen, voor huidige
               bewoners
@@ -125,7 +126,8 @@
         <div class="slider_slide">
           <a href="https://www.amsterdam.nl/pmb/expertise/bmv/projecten/renovatie-amsterdam-museum/">
             <h4 class="slider_number">1 / 3</h4>
-            <img class="slider_img" src="img/centraal_station.webp" alt="een foto van centraal station">
+            <img class="slider_img" src="" alt="">
+
             <h4 class="slider_text">Centraal station</h4>
           </a>
 
@@ -134,7 +136,7 @@
         <div class="slider_slide">
           <a href="https://www.amsterdam.nl/pmb/expertise/bmv/projecten/kwartiermaker-nationaal-slavernijmuseum/">
             <h4 class="slider_number">2 / 3</h4>
-            <img class="slider_img" src="img/gebouwen.webp" alt="een foto van hoge gebouwen">
+            <img class="slider_img" src="" alt="">
             <h4 class="slider_text">Gebouwen</h4>
           </a>
 
@@ -143,7 +145,7 @@
         <div class="slider_slide">
           <a href="https://www.amsterdam.nl/pmb/expertise/bmv/projecten/kwartiermaker-nationaal-slavernijmuseum/">
             <h4 class="slider_number">3 / 3</h4>
-            <img class="slider_img" src="img/gekleurde_gebouwen.webp" alt="een foto van gekleurde gebouwen">
+            <img class="slider_img" src="" alt="">
             <h4 class="slider_text">Gekleurde Gebouwen</h4>
           </a>
 
