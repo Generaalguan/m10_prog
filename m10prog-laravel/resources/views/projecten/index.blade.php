@@ -57,7 +57,7 @@
               <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/organisatie/">Organisatie</a>
             </li>
             <li>
-              <a class="nav_listItem" href="./projecten.html">Projecten</a>
+              <a class="nav_listItem" href="{{'projecten'}}">Projecten</a>
             </li>
             <li>
               <a class="nav_listItem" href="https://www.amsterdam.nl/pmb/werken/">Werken bij</a>

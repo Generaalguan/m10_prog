@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OpdrachtController;
+//mijn controllers
+use App\Http\Controllers\ProjectenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+//mijn routes
 
-//route naar mijn opdrachten
-Route::get('/opdrachten', [OpdrachtController::class, 'index'])->name('opdrachten');
+//route naar mijn projecten
+Route::get('/projecten', [ProjectenController::class, 'index'])->name('projecten');
+Route::get('/projecten/project', [ProjectenController::class, 'show'])->name('projecten.show');
+
 
 require __DIR__.'/auth.php';
