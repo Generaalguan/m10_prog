@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectAdminController;
 use Illuminate\Support\Facades\Route;
 //mijn controllers
 use App\Http\Controllers\ProjectenController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,25 +18,38 @@ use App\Http\Controllers\ProjectenController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('bmv');
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 //mijn routes
+//route naar de welcom page
+Route::get('/', function () {
+    return view('welcome');
+})->name('bmv');
 
 //route naar mijn projecten
 Route::get('/projecten', [ProjectenController::class, 'index'])->name('projecten');
-Route::get('/projecten/project', [ProjectenController::class, 'show'])->name('projecten.show');
+Route::get('/project/{project}', [ProjectController::class, 'show'])->name('projecten.show');
+Route::get('/projecten/add', [ProjectController::class, 'add'])->name('projecten.add');
+
+//Admin 
+
+//dashboard groep
+Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function () {
+
+    // route naar dashboard
+
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
 
-require __DIR__.'/auth.php';
+    Route::resources([
+        'projecten' => ProjectAdminController::class,
+    ]);
+
+});
+
+require __DIR__ . '/auth.php';

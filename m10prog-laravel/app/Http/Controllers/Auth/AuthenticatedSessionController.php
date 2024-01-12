@@ -17,9 +17,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('components.auth.login');
     }
-
+ 
     /**
      * Handle an incoming authentication request.
      */

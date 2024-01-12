@@ -16,7 +16,7 @@
     <!-- Styles -->
     <link href="/dist/app.css" rel="stylesheet">
     <!--JS-->
-    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.global.prod.js" defer></script>
     <script src="/js/main.js" defer></script>
     <script src="/js/app.js" defer></script>
 </head>
