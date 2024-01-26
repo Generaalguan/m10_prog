@@ -12,7 +12,8 @@ class ProjectAdminController extends Controller
      */
     public function index()
     {
-        return "hallo";
+        $projecten = Project::paginate(100);
+return view('dashboard.projecten.index', ['projecten'=>$projecten]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ProjectAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.projecten.create');
     }
 
     /**
@@ -28,7 +29,23 @@ class ProjectAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = $request->validate([
+            'titel'      => 'required|max:255',
+            'header'      => 'required|max:255',
+            'link'        => '',
+            'img'         => '',
+            'alt'       => '',
+            'video'       => '',
+            'description'      => 'required|max:255',
+
+        ]);
+
+        $projecten = new Project( $valid );
+        $projecten->save();
+
+        return redirect( route('projecten.index', $projecten->id ) );
+
+
     }
 
     /**
@@ -36,21 +53,21 @@ class ProjectAdminController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $projecten)
     {
-        //
+        return view('dashboard.projecten.edit', ['project'=>$projecten]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, Project $projecten)
     {
         //
     }

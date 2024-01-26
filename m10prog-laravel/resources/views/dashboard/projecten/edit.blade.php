@@ -7,7 +7,7 @@
             <x-nav-link :href="route('projecten.index')" :active="request()->routeIs('dashboard')">
                 {{ __('Projecten') }}
             </x-nav-link>
-            
+
         </h2>
     </x-slot>
 
@@ -15,9 +15,29 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Dashboard") }}
+                    {{ __("Bewerk Project:") }} {{$project->id}}
                 </div>
             </div>
         </div>
     </div>
+
+    <form action="{{route('projecten.store')}}" method="POST">
+        @csrf
+        <div class="mt-8 max-w-md">
+            <div class="grid grid-cols-1 gap-6">
+                @include('dashboard.projecten._form')
+                <button class="dark:text-gray-100" type="submit">Opslaan</button>
+            </div>
+        </div>
+    </form>
+
+    @if ($errors->any())
+    <div class="p-2 bg-yellow border-2 rounded">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </x-app-layout>

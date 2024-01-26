@@ -43,7 +43,9 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function ()
 
     Route::get('/', function () {
         return view('dashboard');
+        
     })->name('dashboard');
+    
 
 
     Route::resources([
