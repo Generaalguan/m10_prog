@@ -49,9 +49,14 @@
         <button class="projecten_button">Lees meer <i class="fa-solid fa-arrow-right projecten_icon"></i></button>
       </a>
       @endguest
-      @auth <button class="projecten_button dashboard_button">
-        <a href="{{route('projecten.edit', ['projecten' => $project])}}" class="projecten_link">edit</a>
-        <a href="{{route('projecten.destroy', $project)}}" class="projecten_link">delete</a>
+      @auth 
+        
+        <form class="projecten_link" action="{{route('projecten.destroy', ['projecten' => $project])}}" method= "POST">
+          @method('DELETE')
+          @csrf
+          <button class="projecten_button" type="Submit">Verwijder</button>
+          <a href="{{route('projecten.edit', ['projecten' => $project])}}" class="projecten_link">edit</a>
+        </form>
 
       </button>
 

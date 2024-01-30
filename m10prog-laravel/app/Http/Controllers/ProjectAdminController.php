@@ -90,8 +90,11 @@ return view('dashboard.projecten.index', ['projecten'=>$projecten]);
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(Project $projecten)
     {
-        //
+        $projecten->delete();
+        return redirect(route('projecten.index'))->with('alert', 'Het item '.$projecten->title.' is nu weg.');
+
+        
     }
 }
