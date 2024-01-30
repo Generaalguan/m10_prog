@@ -21,7 +21,7 @@ return view('dashboard.projecten.index', ['projecten'=>$projecten]);
      */
     public function create()
     {
-        return view('dashboard.projecten.create');
+        return view('dashboard.projecten.create', ['projecten'=> new Project()]);
     }
 
     /**
@@ -69,7 +69,22 @@ return view('dashboard.projecten.index', ['projecten'=>$projecten]);
      */
     public function update(Request $request, Project $projecten)
     {
-        //
+        $valid = $request->validate([
+            'titel'      => 'required|max:255',
+            'header'      => 'required|max:255',
+            'link'        => '',
+            'img'         => '',
+            'alt'       => '',
+            'video'       => '',
+            'description'      => 'required|max:255',
+
+        ]);
+
+        $projecten->update($valid);
+        $projecten->save();
+
+        return redirect( route('projecten.index', $projecten->id ) );
+
     }
 
     /**

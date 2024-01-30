@@ -25,7 +25,7 @@
         @csrf
         <div class="mt-8 max-w-md">
             <div class="grid grid-cols-1 gap-6">
-                @include('dashboard.projecten._form')
+                @include('dashboard.projecten._form', ['project' => $projecten] )
                 <button class="dark:text-gray-100" type="submit">Opslaan</button>
             </div>
         </div>

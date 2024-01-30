@@ -21,12 +21,13 @@
         </div>
     </div>
 
-    <form action="{{route('projecten.store')}}" method="POST">
+    <form action="{{route('projecten.update', ['projecten'=>$project])}}" method="POST">
+        @method('PUT')
         @csrf
         <div class="mt-8 max-w-md">
             <div class="grid grid-cols-1 gap-6">
-                @include('dashboard.projecten._form')
-                <button class="dark:text-gray-100" type="submit">Opslaan</button>
+                @include('dashboard.projecten._form', ['project' => $project])
+                <button class="dark:text-gray-100" type="submit">Update</button>
             </div>
         </div>
     </form>
